@@ -25,23 +25,55 @@ Now, reboot the NVIDIA® Jetson™ device.
 sudo reboot
 ```
 
-## How to use ZED X with Docker
+## Create Python Virtual Environmnet
 
-In order to use the ZED X and the ZED X Mini in a Docker container, a certain number of options and volumes are required when running the container.
-
-To run an interactive container using docker run:
+If venv is not installed install it with:
 
 ```
-docker run --runtime nvidia -it --privileged -e DISPLAY \
-  --network host \
-  -v /dev/:/dev/ \
-  -v /tmp/:/tmp/ \
-  -v /var/nvidia/nvcam/settings/:/var/nvidia/nvcam/settings/ \
-  -v /etc/systemd/system/zed_x_daemon.service:/etc/systemd/system/zed_x_daemon.service \
-  -v ${HOME}/zed_docker_ai/:/usr/local/zed/resources/ \
-  <docker_image> sh
+sudo apt-get install python3.12-venv
 ```
 
-NOTE: ensure that the L4T (Linux for Tegra) version of your host system matches the L4T version of the container you are using.
+Create a new virtual environment and activate it:
 
-NOTE: the ZED GMSL2 driver must be only installed on the host machine, and not in the Docker container.
+```
+python3.12 -m venv env
+source env/bin/activate
+```
+
+### Download and Install the ZED SDK
+
+Download the [ZED SDK for NVIDIA® Jetson](https://www.stereolabs.com/developers/release). Multiple versions of JetPack are supported, make sure to select the one that matches your system.
+
+Go to the folder where the installer has been downloaded.
+
+```
+cd path/to/download/folder
+```
+
+Add execution permission to the installer using the chmod +x command. Make sure to replace the installer name with the version you downloaded.
+
+```
+chmod +x ZED_SDK_Tegra_L4T35.3_v4.0.0.zstd.run
+```
+
+Run the ZED SDK installer.
+
+```
+./ZED_SDK_Tegra_L4T35.3_v4.0.0.zstd.run
+```
+
+At the beginning of the installation, the Software License will be displayed, hit q after reading it.
+
+During the installation, you might have to answer some questions on the installation of dependencies, tools and samples. Type y for yes and n for no and hit Enter. Hit Enter to pick the default option.
+
+On Jetson™ boards, CUDA is automatically installed with the JetPack so you’re now ready to use the ZED SDK.
+
+## Install Dependencies
+
+Make sure virtual environment is activated.
+
+```
+pip install -r requirements.txt
+```
+
+# Usage

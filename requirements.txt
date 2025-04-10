@@ -1,0 +1,11 @@
+certifi==2025.1.31
+charset-normalizer==3.4.1
+Cython==3.0.12
+idna==3.10
+numpy==2.2.4
+opencv-python==4.11.0.86
+PyOpenGL==3.1.9
+pyzed @ file:///tmp/selfgz61608/pyzed-5.0-cp312-cp312-linux_aarch64.whl#sha256=ba212f719cde8523c3ad27d26cd77df666b2096820ffe0a6898fc6b2091ce689
+requests==2.32.3
+urllib3==2.4.0
+wheel==0.45.1
