@@ -1,3 +1,4 @@
+*.deb
 .env
 env
 __pycache__
