@@ -37,7 +37,7 @@ For more examples and ideas, visit:
 
 📌 Note: To run docker commands without sudo, create a Unix group called docker and add users to it. Note that the docker group grants privileges equivalent to the root user. For more information, see Docker docs.
 
-NVIDIA® Docker
+**NVIDIA® Docker**
 
 📌 Note: For NVIDIA® Jetson™ boards, skip the step below and jump to the Docker install guide for NVIDIA® Jetson.
 
